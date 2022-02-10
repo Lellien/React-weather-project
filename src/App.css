@@ -8,18 +8,18 @@ ul {
   padding: 0;
 }
 
-form {
+.Search form {
   width: 70%;
   display: flex;
   align-items: center;
 }
 
-form .search-button {
+.Search form .search-button {
   position: relative;
   top: 2px;
   left: -30px;
 }
-form button {
+.Search form button {
   display: contents;
 }
 
