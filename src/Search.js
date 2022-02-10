@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./city-day.svg";
+import { formatDate, formatTime } from "./formatCityFunctions/dateTime";
+import { calculateVisibilityIndex } from "./formatCityFunctions/visibility";
+import { calculateWindDirection } from "./formatCityFunctions/windDirection";
 
 export default function Search() {
   const [city, setCity] = useState("");
@@ -8,13 +11,28 @@ export default function Search() {
   const [weather, setWeather] = useState({});
 
   function displayWeather(response) {
+    let localDatetime = new Date(
+      response.data.dt * 1000 + response.data.timezone * 1000
+    );
+    let localDate = formatDate(localDatetime);
+    let localTime = formatTime(localDatetime);
+    let visibilityIndex = calculateVisibilityIndex(response.data.visibility);
+    let windDirection = calculateWindDirection(response.data.wind.deg);
     setWeather({
       name: response.data.name,
       country: response.data.sys.country,
+      datetime: { date: localDate, time: localTime },
       temp: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      wind: Math.round(response.data.wind.speed * 2.2369363), //convert to miles
+      wind: {
+        direction: windDirection,
+        speed: Math.round(response.data.wind.speed * 2.2369363),
+      }, //convert to miles
+      visibility: {
+        km: Math.round(response.data.visibility / 1000),
+        index: visibilityIndex,
+      },
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
     setLoaded(true);
@@ -69,6 +87,10 @@ export default function Search() {
           {weather.name}, {weather.country}
         </h1>
         <ul>
+          <li>
+            Local time: <span id="time">{weather.datetime.time}</span>
+          </li>
+          <li id="date">{weather.datetime.date}</li>
           <li id="weather-description">{weather.description}</li>
         </ul>
         <div className="row weather-main">
@@ -115,8 +137,14 @@ export default function Search() {
                 Humidity: <span id="humidity">{weather.humidity}%</span>
               </li>
               <li>
-                Wind: <span id="wind-speed">{weather.wind} mph</span>,
-                <span id="wind-direction"></span>
+                Wind: <span id="wind-speed">{weather.wind.speed} mph</span>,
+                <span id="wind-direction"> {weather.wind.direction}</span>
+              </li>
+              <li>
+                Visibility:{" "}
+                <span id="visibility">
+                  {weather.visibility.km}km, {weather.visibility.index}
+                </span>
               </li>
             </ul>
           </div>
