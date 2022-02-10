@@ -12,12 +12,10 @@ function App() {
           </div>
           <small>
             <a
-              href="https://github.com/Lellien/Weather-App-Project"
               href="https://github.com/Lellien/React-weather-project"
               target="/blank"
             >
               Open-source code
-            </a>
             </a>{" "}
             by Yael Fromm
           </small>
