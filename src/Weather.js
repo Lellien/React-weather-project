@@ -36,7 +36,7 @@ export default function Weather(props) {
         km: Math.round(response.data.visibility / 1000),
         index: visibilityIndex,
       },
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
 

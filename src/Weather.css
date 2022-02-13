@@ -25,7 +25,7 @@
 .Weather .weather-main {
   margin-top: 20px;
 }
-.Weather .weather-main img {
+.Weather .weather-main svg {
   float: left;
 }
 .Weather .weather-main strong {
