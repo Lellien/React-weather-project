@@ -4,6 +4,8 @@ import Time from "./Time";
 import Date from "./Date";
 import WeatherIcon from "./WeatherIcon";
 import Temperature from "./Temperature";
+import Wind from "./Wind";
+import Visibility from "./Visibility";
 
 export default function WeatherInfo(props) {
   return (
@@ -34,14 +36,10 @@ export default function WeatherInfo(props) {
               Humidity: <span id="humidity">{props.data.humidity}%</span>
             </li>
             <li>
-              Wind: <span id="wind-speed">{props.data.wind.speed} mph</span>,
-              <span id="wind-direction"> {props.data.wind.direction}</span>
+              <Wind wind={props.data.wind} />
             </li>
             <li>
-              Visibility:{" "}
-              <span id="visibility">
-                {props.data.visibility.km}km, {props.data.visibility.index}
-              </span>
+              <Visibility visibility={props.data.visibility} />
             </li>
           </ul>
         </div>

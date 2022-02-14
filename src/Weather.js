@@ -3,10 +3,6 @@ import axios from "axios";
 import UrbanImage from "./UrbanImage";
 import Search from "./Search";
 import WeatherInfo from "./WeatherInfo";
-import {
-  calculateVisibilityIndex,
-  calculateWindDirection,
-} from "./weatherFunctions";
 
 import "./Weather.css";
 
@@ -23,8 +19,6 @@ export default function Weather(props) {
     let localDatetime = new Date(
       response.data.dt * 1000 + response.data.timezone * 1000
     );
-    let visibilityIndex = calculateVisibilityIndex(response.data.visibility);
-    let windDirection = calculateWindDirection(response.data.wind.deg);
     setWeatherData({
       loaded: true,
       name: response.data.name,
@@ -33,14 +27,8 @@ export default function Weather(props) {
       temp: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      wind: {
-        direction: windDirection,
-        speed: Math.round(response.data.wind.speed * 2.2369363),
-      }, //convert to miles
-      visibility: {
-        km: Math.round(response.data.visibility / 1000),
-        index: visibilityIndex,
-      },
+      wind: response.data.wind,
+      visibility: response.data.visibility,
       icon: response.data.weather[0].icon,
     });
   }
