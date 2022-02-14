@@ -39,9 +39,14 @@ export default function WeatherIcon(props) {
     "50n": WiNightFog,
   };
 
-  return React.createElement(
-    codeMapping[props.code],
-    { size: 80, color: "rgba(19, 116, 197, 1)" },
-    null
+  return (
+    <div className="WeatherIcon">
+      {" "}
+      {React.createElement(
+        codeMapping[props.code],
+        { size: 80, color: "rgba(19, 116, 197, 1)" },
+        null
+      )}
+    </div>
   );
 }

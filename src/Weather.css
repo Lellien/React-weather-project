@@ -25,7 +25,7 @@
 .Weather .weather-main {
   margin-top: 20px;
 }
-.Weather .weather-main svg {
+.WeatherIcon svg {
   float: left;
 }
 .Weather .weather-main strong {
@@ -34,50 +34,6 @@
   font-size: calc(48px + 1.5vw);
 }
 
-.Weather .btn-group-sm > .btn,
-.btn-sm {
-  padding: 0 0.3rem;
-  font-size: 14px;
-  border-radius: 0.2rem;
-}
-.Weather .unit-btn {
-  color: rgba(19, 116, 197, 1);
-  border-color: rgba(19, 116, 197, 1);
-}
-.Weather .unit-btn.night {
-  color: rgba(64, 28, 161, 1);
-  border-color: rgba(64, 28, 161, 1);
-}
-
-.Weather .unit-btn:hover {
-  color: #fff;
-  background-color: rgba(19, 116, 197, 0.8);
-  border-color: rgba(19, 116, 197, 1);
-}
-
-.Weather .unit-btn.night:hover {
-  color: #fff;
-  background-color: rgba(64, 28, 161, 0.8);
-  border-color: rgba(64, 28, 161, 1);
-}
-.Weather .btn-check:active + .unit-btn,
-.btn-check:checked + .unit-btn,
-.unit-btn.active,
-.unit-btn.dropdown-toggle.show,
-.unit-btn:active {
-  color: #fff;
-  background-color: rgba(19, 116, 197, 0.8);
-  border-color: rgba(19, 116, 197, 1);
-}
-.Weather .btn-check:active + .unit-btn.night,
-.btn-check:checked + .unit-btn.night,
-.unit-btn.night.active,
-.unit-btn.night.dropdown-toggle.show,
-.unit-btn.night:active {
-  color: #fff;
-  background-color: rgba(64, 28, 161, 0.8);
-  border-color: rgba(64, 28, 161, 1);
-}
 .Weather .weather-forecast {
   margin-top: 20px;
   text-align: center;

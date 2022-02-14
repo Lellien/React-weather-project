@@ -1,14 +1,19 @@
 import React from "react";
+import ScaleButtons from "./ScaleButtons";
 import Time from "./Time";
 import Date from "./Date";
 import WeatherIcon from "./WeatherIcon";
+import Temperature from "./Temperature";
 
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <h1>
-        {props.data.name}, {props.data.country}
-      </h1>
+      <div className="d-flex justify-content-between">
+        <h1>
+          {props.data.name}, {props.data.country}
+        </h1>
+        <ScaleButtons scaleChange={props.scaleChange} />
+      </div>
       <ul>
         <li>
           <Time dateTime={props.data.datetime.localDatetime} />
@@ -21,35 +26,7 @@ export default function WeatherInfo(props) {
       <div className="row weather-main">
         <div className="col-7">
           <WeatherIcon code={props.data.icon} />
-          <strong className="temp">{props.data.temp}</strong>
-          <div
-            className="btn-group btn-group-sm"
-            role="group"
-            aria-label="Pair of radio toggle buttons"
-          >
-            <input
-              type="radio"
-              className="btn-check"
-              name="btnradio"
-              id="celsius-button"
-              autoComplete="off"
-              defaultChecked
-            />
-            <label className="btn unit-btn" htmlFor="celsius-button">
-              °C
-            </label>
-
-            <input
-              type="radio"
-              className="btn-check"
-              name="btnradio"
-              id="fahrenheit-button"
-              autoComplete="off"
-            />
-            <label className="btn unit-btn" htmlFor="fahrenheit-button">
-              °F
-            </label>
-          </div>
+          <Temperature temp={props.data.temp} scale={props.scale} />
         </div>
         <div className="col-5">
           <ul className="extra-info">

@@ -13,6 +13,11 @@ import "./Weather.css";
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ loaded: false });
+  const [scale, setScale] = useState("metric");
+
+  function toggleScale(unit) {
+    setScale(unit);
+  }
 
   function displayWeather(response) {
     let localDatetime = new Date(
@@ -68,7 +73,11 @@ export default function Weather(props) {
             </button>
           </span>
         </div>
-        <WeatherInfo data={weatherData} />
+        <WeatherInfo
+          data={weatherData}
+          scale={scale}
+          scaleChange={toggleScale}
+        />
         <section className="weather-forecast" id="forecast"></section>
       </div>
     );
