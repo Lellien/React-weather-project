@@ -1,17 +1,8 @@
 .Weather {
-  border: 1px solid rgba(19, 116, 197, 0.3);
+  margin-top: 30px;
+  border: 1px ridge rgba(19, 116, 197, 0.3);
   border-radius: 6px;
   padding: 10px;
-}
-
-.Weather h1 {
-  margin-bottom: 0;
-  line-height: 1.5;
-}
-.Weather ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .Weather.night {
@@ -19,40 +10,19 @@
 }
 
 .Weather span.location-button-container {
-  margin: 2px 0 0 0;
+  padding: 2px 5px 0 0;
 }
 
-.Weather .weather-main {
-  margin-top: 20px;
-}
-.WeatherIcon svg {
-  float: left;
-}
-.Weather .weather-main strong {
-  float: left;
-  line-height: 1;
-  font-size: calc(48px + 1.5vw);
-}
-
-.Weather .weather-forecast {
-  margin-top: 20px;
-  text-align: center;
-}
-.Weather .weather-forecast-day {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.7);
-}
-.Weather .weather-forecast-temps {
-  font-size: 13px;
-}
-.Weather .forecast-temp-lo {
-  opacity: 0.6;
-}
 .Weather button#location-button {
   display: contents;
 }
 
-.Weather .Time span {
+.WeatherInfo .WeatherIcon svg {
+  float: left;
+  margin-right: 5px;
+}
+
+.Time span {
   background: rgba(176, 220, 249, 0.2);
   border: 1px solid rgba(176, 220, 249, 0.9);
   text-align: center;
@@ -60,30 +30,7 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   padding: 1px 3px;
 }
-.Weather .Time span.night {
+.Time span.night {
   border: 1px solid rgba(64, 28, 161, 0.6);
   background: rgba(64, 28, 161, 0.2);
-}
-.Weather li#weather-description::first-letter {
-  text-transform: capitalize;
-}
-
-.Weather img.forecast-icon {
-  width: 100%;
-}
-.Weather img.forecast-icon.night {
-  filter: grayscale();
-}
-
-.Weather ul.extra-info span {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(19, 116, 197, 1);
-}
-
-.Weather ul.extra-info span.night {
-  color: rgba(64, 28, 161, 1);
-}
-.Weather #city-buildings {
-  width: 100px;
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import UrbanImage from "./UrbanImage/UrbanImage";
 import Search from "./Search";
 import WeatherInfo from "./WeatherInfo/WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 import "./Weather.css";
 
@@ -30,6 +31,7 @@ export default function Weather(props) {
       wind: response.data.wind,
       visibility: response.data.visibility,
       icon: response.data.weather[0].icon,
+      coordinates: response.data.coord,
     });
   }
 
@@ -56,7 +58,7 @@ export default function Weather(props) {
           <UrbanImage dayNight={weatherData.datetime.time} />
           <Search update={updateCity} submit={handleSubmit} />
           <span className="location-button-container">
-            <button id="location-button">
+            <button title="Your location" id="location-button">
               <i className="fas fa-location-arrow" id="location-arrow-icon"></i>
             </button>
           </span>
@@ -66,8 +68,10 @@ export default function Weather(props) {
           scale={scale}
           scaleChange={changeScale}
         />
+        <WeatherForecast
+          coordinates={weatherData.coordinates}
+          scale={scale}
         />
-        <section className="weather-forecast" id="forecast"></section>
       </div>
     );
   } else {
