@@ -2,15 +2,16 @@ import React from "react";
 import ScaleButtons from "./ScaleButtons";
 import Time from "./Time";
 import Date from "./Date";
-import WeatherIcon from "./WeatherIcon";
+import WeatherIcon from "../WeatherIcon";
 import Temperature from "./Temperature";
-import Wind from "./Wind";
-import Visibility from "./Visibility";
+import WeatherExtraInfo from "./WeatherExtraInfo";
+
+import "./WeatherInfo.css";
 
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between align-items-center">
         <h1>
           {props.data.name}, {props.data.country}
         </h1>
@@ -18,30 +19,22 @@ export default function WeatherInfo(props) {
       </div>
       <ul>
         <li>
-          <Time dateTime={props.data.datetime.localDatetime} />
+          <Time
+            dateTime={props.data.datetime.localDatetime}
+          />
         </li>
         <li>
           <Date dateTime={props.data.datetime.localDatetime} />
         </li>
         <li id="weather-description">{props.data.description}</li>
       </ul>
-      <div className="row weather-main">
+      <div className="row WeatherInfo-main">
         <div className="col-7">
-          <WeatherIcon code={props.data.icon} />
+          <WeatherIcon code={props.data.icon} size={80} />
           <Temperature temp={props.data.temp} scale={props.scale} />
         </div>
         <div className="col-5">
-          <ul className="extra-info">
-            <li>
-              Humidity: <span id="humidity">{props.data.humidity}%</span>
-            </li>
-            <li>
-              <Wind wind={props.data.wind} />
-            </li>
-            <li>
-              <Visibility visibility={props.data.visibility} />
-            </li>
-          </ul>
+          <WeatherExtraInfo data={props.data} />
         </div>
       </div>
     </div>

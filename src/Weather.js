@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import UrbanImage from "./UrbanImage";
+import UrbanImage from "./UrbanImage/UrbanImage";
 import Search from "./Search";
-import WeatherInfo from "./WeatherInfo";
+import WeatherInfo from "./WeatherInfo/WeatherInfo";
 
 import "./Weather.css";
 
@@ -11,11 +11,11 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ loaded: false });
   const [scale, setScale] = useState("metric");
 
-  function toggleScale(unit) {
+  function changeScale(unit) {
     setScale(unit);
   }
 
-  function displayWeather(response) {
+  function showWeather(response) {
     let localDatetime = new Date(
       response.data.dt * 1000 + response.data.timezone * 1000
     );
@@ -34,10 +34,10 @@ export default function Weather(props) {
   }
 
   function search() {
-    let apiKey = "0392c3c6a728319e4bcd5bed20b65b72";
+    let apiKey = "870ab1b91a708644ba5aea1e514c8cf0";
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
-    axios.get(apiUrl).then(displayWeather);
+    axios.get(apiUrl).then(showWeather);
   }
 
   function handleSubmit(event) {
@@ -64,13 +64,14 @@ export default function Weather(props) {
         <WeatherInfo
           data={weatherData}
           scale={scale}
-          scaleChange={toggleScale}
+          scaleChange={changeScale}
+        />
         />
         <section className="weather-forecast" id="forecast"></section>
       </div>
     );
   } else {
     search();
-    return "Loading";
+    return <div>Loading...</div>;
   }
 }

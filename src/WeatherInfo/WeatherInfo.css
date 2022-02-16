@@ -1,0 +1,40 @@
+.WeatherInfo h1 {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+.WeatherInfo ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.WeatherInfo .WeatherInfo-main {
+  margin-top: 20px;
+}
+
+.WeatherInfo .Temperature {
+  line-height: 80px;
+}
+.WeatherInfo .WeatherInfo-main .Temperature strong {
+  float: left;
+  font-size: calc(48px + 1.5vw);
+}
+.WeatherInfo .WeatherInfo-main .Temperature .Temperature-unit {
+  font-size: 18px;
+  position: relative;
+  top: -17px;
+}
+
+.WeatherInfo li#weather-description::first-letter {
+  text-transform: capitalize;
+}
+
+.WeatherExtraInfo ul span {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(19, 116, 197, 1);
+}
+
+.WeatherExtraInfo ul.night span {
+  color: rgba(64, 28, 161, 1);
+}

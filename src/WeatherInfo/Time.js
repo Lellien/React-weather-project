@@ -13,9 +13,10 @@ export default function Time(props) {
 
   let localTime = formatTime(props.dateTime);
 
-  return (
-    <div className="Time">
-      Local time: <span>{localTime}</span>
-    </div>
-  );
+    return (
+      <div className="Time">
+        Local time: <span>{localTime}</span>
+      </div>
+    );
+  }
 }

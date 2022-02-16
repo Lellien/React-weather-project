@@ -14,7 +14,7 @@ export default function Wind(props) {
   function calculateWindDirection(deg) {
     let direction = "";
     let arrow = <></>;
-    let size = 40;
+    let size = 23;
     if ((0 <= deg && deg < 11.25) || (348.75 <= deg && deg <= 360)) {
       direction = "N";
       arrow = <WiDirectionDown size={size} />;

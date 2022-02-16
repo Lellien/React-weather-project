@@ -12,7 +12,9 @@ export default function ScaleButtons(props) {
   }
 
   return (
-    <div className="ScaleButtons">
+    <span
+      className="ScaleButtons"
+    >
       <div
         className="btn-group btn-group-sm"
         role="group"
@@ -43,6 +45,6 @@ export default function ScaleButtons(props) {
           °F
         </label>
       </div>
-    </div>
+    </span>
   );
 }

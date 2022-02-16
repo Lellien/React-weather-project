@@ -3,45 +3,43 @@
 }
 
 .ScaleButtons .btn-group-sm > .btn,
-.btn-sm {
+.ScaleButtons .btn-sm {
   padding: 0 0.3rem;
   font-size: 14px;
   border-radius: 0.2rem;
 }
-.ScaleButtons .unit-btn {
+.ScaleButtons label {
   color: rgba(19, 116, 197, 1);
   border-color: rgba(19, 116, 197, 1);
 }
-.ScaleButtons .unit-btn.night {
+.ScaleButtons.night label {
   color: rgba(64, 28, 161, 1);
   border-color: rgba(64, 28, 161, 1);
 }
 
-.ScaleButtons .unit-btn:hover {
+.ScaleButtons label:hover {
   color: #fff;
   background-color: rgba(19, 116, 197, 0.8);
   border-color: rgba(19, 116, 197, 1);
 }
 
-.ScaleButtons .unit-btn.night:hover {
+.ScaleButtons.night label:hover {
   color: #fff;
   background-color: rgba(64, 28, 161, 0.8);
   border-color: rgba(64, 28, 161, 1);
 }
-.ScaleButtons .btn-check:active + .unit-btn,
-.btn-check:checked + .unit-btn,
-.unit-btn.active,
-.unit-btn.dropdown-toggle.show,
-.unit-btn:active {
+.ScaleButtons .btn-check:active + label,
+.ScaleButtons .btn-check:checked + label,
+.ScaleButtons label.active,
+.ScaleButtons label:active {
   color: #fff;
   background-color: rgba(19, 116, 197, 0.8);
   border-color: rgba(19, 116, 197, 1);
 }
-.ScaleButtons .btn-check:active + .unit-btn.night,
-.btn-check:checked + .unit-btn.night,
-.unit-btn.night.active,
-.unit-btn.night.dropdown-toggle.show,
-.unit-btn.night:active {
+.ScaleButtons.night .btn-check:active + label,
+.ScaleButtons.night .btn-check:checked + label,
+.ScaleButtons.night label.active,
+.ScaleButtons.night label:active {
   color: #fff;
   background-color: rgba(64, 28, 161, 0.8);
   border-color: rgba(64, 28, 161, 1);
