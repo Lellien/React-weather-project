@@ -14,7 +14,10 @@ function App() {
           >
             Open-source code
           </a>{" "}
-          by Yael Fromm
+          by{" "}
+          <a href="https://quirky-jang-428adc.netlify.app/" target="/blank">
+            Yael Fromm
+          </a>
         </small>
       </div>
     </div>
