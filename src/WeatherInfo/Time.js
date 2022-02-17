@@ -13,9 +13,16 @@ export default function Time(props) {
 
   let localTime = formatTime(props.dateTime);
 
+  if (props.mode === "day") {
     return (
       <div className="Time">
         Local time: <span>{localTime}</span>
+      </div>
+    );
+  } else {
+    return (
+      <div className="Time">
+        Local time: <span className="night">{localTime}</span>
       </div>
     );
   }

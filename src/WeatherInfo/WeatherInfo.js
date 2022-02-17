@@ -15,12 +15,13 @@ export default function WeatherInfo(props) {
         <h1>
           {props.data.name}, {props.data.country}
         </h1>
-        <ScaleButtons scaleChange={props.scaleChange} />
+        <ScaleButtons scaleChange={props.scaleChange} mode={props.mode} />
       </div>
       <ul>
         <li>
           <Time
             dateTime={props.data.datetime.localDatetime}
+            mode={props.mode}
           />
         </li>
         <li>
@@ -30,11 +31,11 @@ export default function WeatherInfo(props) {
       </ul>
       <div className="row WeatherInfo-main">
         <div className="col-7">
-          <WeatherIcon code={props.data.icon} size={80} />
+          <WeatherIcon code={props.data.icon} size={80} mode={props.mode} />
           <Temperature temp={props.data.temp} scale={props.scale} />
         </div>
         <div className="col-5">
-          <WeatherExtraInfo data={props.data} />
+          <WeatherExtraInfo data={props.data} mode={props.mode} />
         </div>
       </div>
     </div>

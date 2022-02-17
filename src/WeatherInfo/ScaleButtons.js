@@ -13,7 +13,7 @@ export default function ScaleButtons(props) {
 
   return (
     <span
-      className="ScaleButtons"
+      className={props.mode === "day" ? "ScaleButtons" : "ScaleButtons night"}
     >
       <div
         className="btn-group btn-group-sm"

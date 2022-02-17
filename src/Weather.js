@@ -4,6 +4,7 @@ import UrbanImage from "./UrbanImage/UrbanImage";
 import Search from "./Search";
 import WeatherInfo from "./WeatherInfo/WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+import { checkDayNight } from "./DayNight";
 
 import "./Weather.css";
 
@@ -11,6 +12,11 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ loaded: false });
   const [scale, setScale] = useState("metric");
+  const [mode, setMode] = useState("day");
+
+  function changeMode(dayNight) {
+    setMode(dayNight);
+  }
 
   function changeScale(unit) {
     setScale(unit);
@@ -33,10 +39,11 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       coordinates: response.data.coord,
     });
+    changeMode(checkDayNight(response.data));
   }
 
   function search() {
-    let apiKey = "870ab1b91a708644ba5aea1e514c8cf0";
+    let apiKey = "0392c3c6a728319e4bcd5bed20b65b72";
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
     axios.get(apiUrl).then(showWeather);
@@ -53,9 +60,9 @@ export default function Weather(props) {
 
   if (weatherData.loaded) {
     return (
-      <div className="Weather">
+      <div className={mode === "day" ? "Weather" : "Weather night"}>
         <div className="d-flex align-items-center">
-          <UrbanImage dayNight={weatherData.datetime.time} />
+          <UrbanImage mode={mode} />
           <Search update={updateCity} submit={handleSubmit} />
           <span className="location-button-container">
             <button title="Your location" id="location-button">
@@ -67,10 +74,12 @@ export default function Weather(props) {
           data={weatherData}
           scale={scale}
           scaleChange={changeScale}
+          mode={mode}
         />
         <WeatherForecast
           coordinates={weatherData.coordinates}
           scale={scale}
+          mode={mode}
         />
       </div>
     );

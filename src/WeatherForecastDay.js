@@ -36,6 +36,7 @@ export default function WeatherForecastDay(props) {
       <WeatherIcon
         code={props.forecast.weather[0].icon}
         size={45}
+        mode={props.mode}
       />
       <div className="WeatherForecastDay-temps">
         <span className="WeatherForecastDay-temp-hi">{highTemp()}</span>{" "}
