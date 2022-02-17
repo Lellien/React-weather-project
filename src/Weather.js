@@ -4,6 +4,7 @@ import UrbanImage from "./UrbanImage/UrbanImage";
 import Search from "./Search";
 import WeatherInfo from "./WeatherInfo/WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+import LocationButton from "./LocationButton";
 import { checkDayNight } from "./DayNight";
 
 import "./Weather.css";
@@ -64,11 +65,7 @@ export default function Weather(props) {
         <div className="d-flex align-items-center">
           <UrbanImage mode={mode} />
           <Search update={updateCity} submit={handleSubmit} />
-          <span className="location-button-container">
-            <button title="Your location" id="location-button">
-              <i className="fas fa-location-arrow" id="location-arrow-icon"></i>
-            </button>
-          </span>
+          <LocationButton showResponse={showWeather} />
         </div>
         <WeatherInfo
           data={weatherData}
