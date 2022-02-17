@@ -4,8 +4,16 @@ import UrbanNight from "./UrbanNight";
 
 export default function UrbanImage(props) {
   if (props.mode === "day") {
-    return <UrbanDay />;
+    return (
+      <div className="UrbanImage">
+        <UrbanDay />
+      </div>
+    );
   } else {
-    return <UrbanNight />;
+    return (
+      <div className="UrbanImage">
+        <UrbanNight />
+      </div>
+    );
   }
 }

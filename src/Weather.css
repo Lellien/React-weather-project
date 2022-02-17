@@ -9,28 +9,16 @@
   border: 1px solid rgba(64, 28, 161, 0.25);
 }
 
-.Weather span.location-button-container {
+.LocationButton {
   padding: 2px 5px 0 0;
 }
 
-.Weather button#location-button {
+.LocationButton button {
   display: contents;
 }
 
-.WeatherInfo .WeatherIcon svg {
-  float: left;
-  margin-right: 5px;
-}
-
-.Time span {
-  background: rgba(176, 220, 249, 0.2);
-  border: 1px solid rgba(176, 220, 249, 0.9);
-  text-align: center;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  padding: 1px 3px;
-}
-.Time span.night {
-  border: 1px solid rgba(64, 28, 161, 0.6);
-  background: rgba(64, 28, 161, 0.2);
+@media (max-width: 500px) {
+  .UrbanImage svg {
+    width: 70px;
+  }
 }

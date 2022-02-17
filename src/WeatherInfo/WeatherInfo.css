@@ -8,33 +8,21 @@
   padding: 0;
 }
 
-.WeatherInfo .WeatherInfo-main {
-  margin-top: 20px;
+.WeatherInfo ul.WeatherInfo-overview {
+  margin-bottom: 20px;
 }
 
-.WeatherInfo .Temperature {
-  line-height: 80px;
-}
-.WeatherInfo .WeatherInfo-main .Temperature strong {
-  float: left;
-  font-size: calc(48px + 1.5vw);
-}
-.WeatherInfo .WeatherInfo-main .Temperature .Temperature-unit {
-  font-size: 18px;
-  position: relative;
-  top: -17px;
-}
-
-.WeatherInfo li#weather-description::first-letter {
+.WeatherInfo-overview li.WeatherInfo-description::first-letter {
   text-transform: capitalize;
 }
-
-.WeatherExtraInfo ul span {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(19, 116, 197, 1);
+.WeatherInfo-main .WeatherIcon svg {
+  float: left;
+  margin-right: 5px;
 }
 
-.WeatherExtraInfo ul.night span {
-  color: rgba(64, 28, 161, 1);
+@media (max-width: 500px) {
+  .WeatherInfo-main .WeatherIcon svg {
+    margin-right: 0;
+    width: 70px;
+  }
 }

@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Time.css";
+
 export default function Time(props) {
   function formatTime(timestamp) {
     let currentHours = timestamp.getHours();

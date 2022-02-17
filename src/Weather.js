@@ -62,7 +62,7 @@ export default function Weather(props) {
   if (weatherData.loaded) {
     return (
       <div className={mode === "day" ? "Weather" : "Weather night"}>
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center justify-content-between">
           <UrbanImage mode={mode} />
           <Search update={updateCity} submit={handleSubmit} />
           <LocationButton showResponse={showWeather} />

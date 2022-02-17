@@ -4,7 +4,7 @@ import Time from "./Time";
 import Date from "./Date";
 import WeatherIcon from "../WeatherIcon";
 import Temperature from "./Temperature";
-import WeatherExtraInfo from "./WeatherExtraInfo";
+import WeatherInfoExtra from "./WeatherInfoExtra";
 
 import "./WeatherInfo.css";
 
@@ -17,7 +17,7 @@ export default function WeatherInfo(props) {
         </h1>
         <ScaleButtons scaleChange={props.scaleChange} mode={props.mode} />
       </div>
-      <ul>
+      <ul className="WeatherInfo-overview">
         <li>
           <Time
             dateTime={props.data.datetime.localDatetime}
@@ -27,15 +27,15 @@ export default function WeatherInfo(props) {
         <li>
           <Date dateTime={props.data.datetime.localDatetime} />
         </li>
-        <li id="weather-description">{props.data.description}</li>
+        <li className="WeatherInfo-description">{props.data.description}</li>
       </ul>
-      <div className="row WeatherInfo-main">
-        <div className="col-7">
+      <div className="row">
+        <div className="col-6 col-sm-7 WeatherInfo-main">
           <WeatherIcon code={props.data.icon} size={80} mode={props.mode} />
           <Temperature temp={props.data.temp} scale={props.scale} />
         </div>
-        <div className="col-5">
-          <WeatherExtraInfo data={props.data} mode={props.mode} />
+        <div className="col-6 col-sm-5">
+          <WeatherInfoExtra data={props.data} mode={props.mode} />
         </div>
       </div>
     </div>

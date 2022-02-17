@@ -2,9 +2,11 @@ import React from "react";
 import Wind from "./Wind";
 import Visibility from "./Visibility";
 
-export default function WeatherExtraInfo(props) {
+import "./WeatherInfoExtra.css";
+
+export default function WeatherInfoExtra(props) {
   return (
-    <div className="WeatherExtraInfo">
+    <div className="WeatherInfoExtra">
       <ul className={props.mode === "day" ? null : "night"}>
         <li>
           Humidity: <span id="humidity">{props.data.humidity}%</span>

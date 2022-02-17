@@ -1,0 +1,18 @@
+.WeatherInfoExtra ul span {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(19, 116, 197, 1);
+}
+
+.WeatherInfoExtra ul.night span {
+  color: rgba(64, 28, 161, 1);
+}
+
+@media (max-width: 500px) {
+  .WeatherInfoExtra ul {
+    font-size: 14px;
+  }
+  .WeatherInfoExtra ul span {
+    font-size: 13px;
+  }
+}

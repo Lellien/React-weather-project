@@ -10,6 +10,8 @@ import {
   WiDirectionUp,
 } from "weather-icons-react";
 
+import "./Wind.css";
+
 export default function Wind(props) {
   function calculateWindDirection(deg) {
     let direction = "";
@@ -73,7 +75,7 @@ export default function Wind(props) {
   return (
     <div className="Wind">
       Wind: <span id="wind-speed">{speed}mph</span>,{" "}
-      <span id="wind-direction">
+      <span className="Wind-direction">
         {windDirection.direction}
         {windDirection.arrow}
       </span>

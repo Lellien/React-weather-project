@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Temperature.css";
+
 export default function Temperature(props) {
   if (props.scale === "metric") {
     return (
