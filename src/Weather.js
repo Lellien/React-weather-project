@@ -25,7 +25,7 @@ export default function Weather(props) {
 
   function showWeather(response) {
     let localDatetime = new Date(
-      response.data.dt * 1000 + response.data.timezone * 1000
+      response.data.dt * 1000 + (response.data.timezone - 3600) * 1000
     );
     setWeatherData({
       loaded: true,
